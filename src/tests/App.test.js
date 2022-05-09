@@ -1,12 +1,12 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import renderWithRouter from '../components/renderWithRouter';
+import RenderWithRouter from '../components/RenderWithRouter';
 import App from '../App';
 
 describe('Teste o componente <App.js />', () => {
   it('Teste se o topo da aplicação contém um conjunto fixo de links de navegação', () => {
-    renderWithRouter(<App />);
+    RenderWithRouter(<App />);
     const linkHome = screen.getByRole('link', { name: 'Home' });
     expect(linkHome).toBeDefined();
 
@@ -19,7 +19,7 @@ describe('Teste o componente <App.js />', () => {
 
   it(`Teste se a aplicação é redirecionada para a
     página inicial, na URL / ao clicar no link Home da barra de navegação`, () => {
-    const { history } = renderWithRouter(<App />);
+    const { history } = RenderWithRouter(<App />);
 
     const linkHome = screen.getByRole('link', { name: 'Home' });
     userEvent.click(linkHome);
@@ -30,7 +30,7 @@ describe('Teste o componente <App.js />', () => {
 
   it(`Teste se a aplicação é redirecionada para a página
       de About, na URL /about, ao clicar no link About da barra de navegação.`, () => {
-    const { history } = renderWithRouter(<App />);
+    const { history } = RenderWithRouter(<App />);
 
     const linkAbout = screen.getByRole('link', { name: 'About' });
     userEvent.click(linkAbout);
@@ -42,11 +42,12 @@ describe('Teste o componente <App.js />', () => {
   it(`Teste se a aplicação é redirecionada para a página de Pokémons
       Favoritados, na URL /favorites, ao clicar no link Favorite
       Pokémons da barra de navegação.`, () => {
-    const { history } = renderWithRouter(<App />);
+    const { history } = RenderWithRouter(<App />);
 
     const linkFav = screen.getByRole('link', {
       name: 'Favorite Pokémons',
     });
+
     userEvent.click(linkFav);
 
     const { pathname } = history.location;
