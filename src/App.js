@@ -9,7 +9,6 @@ import {
   PokemonDetails,
 } from './components';
 
-
 import {
   readFavoritePokemonIds,
   updateFavoritePokemons,
