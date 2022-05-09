@@ -1,7 +1,7 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import RenderWithRouter from '../components/RenderWithRouter';
+import RenderWithRouter from '../helpers/RenderWithRouter';
 import App from '../App';
 
 describe('Teste o componente <About.js />', () => {
